@@ -108,8 +108,8 @@ test.describe('Customer Engagement - Residential Services', () => {
     test.setTimeout(60000);
     await navigateToResidentialServices(page);
 
-    // Fill in a test address within Casella's service area (Vermont)
-    await fillAddressForm(page, '123 Main Street', 'Rutland', 'VT', '05701');
+    // Fill in a real address within Casella's service area (Rutland, VT)
+    await fillAddressForm(page, '78 Merchants Row', 'Rutland', 'VT', '05701');
 
     // Submit the address / check availability
     const submitButton = page.getByRole('button', { name: /check|submit|next|continue|verify/i });
@@ -127,7 +127,7 @@ test.describe('Customer Engagement - Residential Services', () => {
     await navigateToResidentialServices(page);
 
     // Fill in address
-    await fillAddressForm(page, '123 Main Street', 'Rutland', 'VT', '05701');
+    await fillAddressForm(page, '78 Merchants Row', 'Rutland', 'VT', '05701');
 
     // Submit address
     const submitButton = page.getByRole('button', { name: /check|submit|next|continue|verify/i });
@@ -169,7 +169,7 @@ test.describe('Customer Engagement - Residential Services', () => {
     await navigateToResidentialServices(page);
 
     // Fill in address
-    await fillAddressForm(page, '123 Main Street', 'Rutland', 'VT', '05701');
+    await fillAddressForm(page, '78 Merchants Row', 'Rutland', 'VT', '05701');
 
     // Submit address
     const submitButton = page.getByRole('button', { name: /check|submit|next|continue|verify/i });
@@ -220,7 +220,7 @@ test.describe('Customer Engagement - Residential Services', () => {
     await navigateToResidentialServices(page);
 
     // Fill in address
-    await fillAddressForm(page, '123 Main Street', 'Rutland', 'VT', '05701');
+    await fillAddressForm(page, '78 Merchants Row', 'Rutland', 'VT', '05701');
 
     // Submit address
     const submitButton = page.getByRole('button', { name: /check|submit|next|continue|verify/i });
@@ -263,8 +263,8 @@ test.describe('Customer Engagement - Residential Services', () => {
     test.setTimeout(60000);
     await navigateToResidentialServices(page);
 
-    // Fill in an invalid/non-serviceable address
-    await fillAddressForm(page, '99999 Nonexistent Road', 'FakeCity', 'XX', '00000');
+    // Fill in a real address outside Casella's service area (Los Angeles, CA)
+    await fillAddressForm(page, '100 North Main Street', 'Los Angeles', 'CA', '90012');
 
     // Submit the invalid address
     const submitButton = page.getByRole('button', { name: /check|submit|next|continue|verify/i });
