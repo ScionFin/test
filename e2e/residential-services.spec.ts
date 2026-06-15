@@ -13,10 +13,8 @@ test.describe('Customer Engagement - Residential Services', () => {
   });
 
   test('should navigate to Residential Services', async ({ page }) => {
-    // Look for and click on the Residential Services option
-    const residentialOption = page.getByRole('button', { name: /residential/i })
-      .or(page.getByRole('link', { name: /residential/i }))
-      .or(page.getByText(/residential services/i));
+    // Click on the Residential Services section using its test-id
+    const residentialOption = page.getByTestId('page-residential-services-section');
 
     await expect(residentialOption).toBeVisible();
     await residentialOption.click();
@@ -27,9 +25,7 @@ test.describe('Customer Engagement - Residential Services', () => {
 
   test('should display address entry form for residential services', async ({ page }) => {
     // Navigate to Residential Services
-    const residentialOption = page.getByRole('button', { name: /residential/i })
-      .or(page.getByRole('link', { name: /residential/i }))
-      .or(page.getByText(/residential services/i));
+    const residentialOption = page.getByTestId('page-residential-services-section');
     await residentialOption.click();
 
     // Verify address form fields are present
@@ -52,9 +48,7 @@ test.describe('Customer Engagement - Residential Services', () => {
 
   test('should fill in address and verify service availability', async ({ page }) => {
     // Navigate to Residential Services
-    const residentialOption = page.getByRole('button', { name: /residential/i })
-      .or(page.getByRole('link', { name: /residential/i }))
-      .or(page.getByText(/residential services/i));
+    const residentialOption = page.getByTestId('page-residential-services-section');
     await residentialOption.click();
 
     // Fill in a test address within Casella's service area (Vermont)
@@ -85,9 +79,7 @@ test.describe('Customer Engagement - Residential Services', () => {
 
   test('should select residential service options', async ({ page }) => {
     // Navigate to Residential Services
-    const residentialOption = page.getByRole('button', { name: /residential/i })
-      .or(page.getByRole('link', { name: /residential/i }))
-      .or(page.getByText(/residential services/i));
+    const residentialOption = page.getByTestId('page-residential-services-section');
     await residentialOption.click();
 
     // Fill in address
@@ -143,9 +135,7 @@ test.describe('Customer Engagement - Residential Services', () => {
 
   test('should complete contact information form', async ({ page }) => {
     // Navigate to Residential Services
-    const residentialOption = page.getByRole('button', { name: /residential/i })
-      .or(page.getByRole('link', { name: /residential/i }))
-      .or(page.getByText(/residential services/i));
+    const residentialOption = page.getByTestId('page-residential-services-section');
     await residentialOption.click();
 
     // Fill in address
@@ -210,9 +200,7 @@ test.describe('Customer Engagement - Residential Services', () => {
 
   test('should display order summary before submission', async ({ page }) => {
     // Navigate to Residential Services
-    const residentialOption = page.getByRole('button', { name: /residential/i })
-      .or(page.getByRole('link', { name: /residential/i }))
-      .or(page.getByText(/residential services/i));
+    const residentialOption = page.getByTestId('page-residential-services-section');
     await residentialOption.click();
 
     // Fill in address
@@ -256,9 +244,7 @@ test.describe('Customer Engagement - Residential Services', () => {
 
   test('should validate required fields show error messages', async ({ page }) => {
     // Navigate to Residential Services
-    const residentialOption = page.getByRole('button', { name: /residential/i })
-      .or(page.getByRole('link', { name: /residential/i }))
-      .or(page.getByText(/residential services/i));
+    const residentialOption = page.getByTestId('page-residential-services-section');
     await residentialOption.click();
 
     // Try to submit without filling in required fields
@@ -274,9 +260,7 @@ test.describe('Customer Engagement - Residential Services', () => {
 
   test('should handle invalid address gracefully', async ({ page }) => {
     // Navigate to Residential Services
-    const residentialOption = page.getByRole('button', { name: /residential/i })
-      .or(page.getByRole('link', { name: /residential/i }))
-      .or(page.getByText(/residential services/i));
+    const residentialOption = page.getByTestId('page-residential-services-section');
     await residentialOption.click();
 
     // Fill in an invalid/non-serviceable address
@@ -305,3 +289,4 @@ test.describe('Customer Engagement - Residential Services', () => {
     await expect(errorMessage.first()).toBeVisible({ timeout: 10000 });
   });
 });
+
