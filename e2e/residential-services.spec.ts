@@ -1,8 +1,10 @@
 import { test, expect } from '@playwright/test';
 
+const BASE_URL = 'https://app-qa.casella.com/customerengagement/';
+
 test.describe('Customer Engagement - Residential Services', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/customerengagement/');
+    await page.goto(BASE_URL);
   });
 
   test('should load the customer engagement page', async ({ page }) => {
